@@ -127,30 +127,76 @@
 
         <div class="row">
           <div class="col-lg-6 mb-7 mb-lg-0" data-aos="fade-right">
-            <h3 data-aos="fade-up">Example Queries</h3>
+            <h2 data-aos="fade-up">Example Queries</h2>
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
                 <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
                   <h4>Find the name of an AS</h4>
-                  <p><code>MATCH p = (:AS {asn:2497})--(:Name) RETURN p</code></p>
+                  <div class="row">
+                    <div class="col-10">
+                        <p>
+                            <code id='query-1'>MATCH p = (:AS {asn:2497})--(:Name) RETURN p</code>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p>
+                            <i id="query-1-btn" class="bx bx-copy-alt" onclick="toClipboard('query-1')"></i>
+                        </p>
+                    </div>
+                  </div>
                 </a>
               </li>
               <li class="nav-item mt-2">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
-                  <h4>Unde praesentium sed</h4>
-                  <p>Voluptas vel esse repudiandae quo excepturi.</p>
+                  <h4>All nodes related to a prefix</h4>
+                  <div class="row">
+                    <div class="col-10">
+                        <p>
+                            <code id='query-2'>MATCH p = (:Prefix {prefix:'8.8.8.0/24'})--(neighbor) RETURN p</code>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p>
+                            <i id="query-2-btn" class="bx bx-copy-alt" onclick="toClipboard('query-2')"></i>
+                        </p>
+                    </div>
+                  </div>
                 </a>
               </li>
               <li class="nav-item mt-2">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
-                  <h4>Pariatur explicabo vel</h4>
-                  <p>Velit veniam ipsa sit nihil blanditiis mollitia natus.</p>
+                  <h4>Country code of an AS in delegated files</h4>
+                  <div class="row">
+                    <div class="col-10">
+                        <p>
+                            <code id='query-3'>MATCH p = (:AS {asn:2497})-[{reference_name:'nro.delegated_stats'}]-(:Country) RETURN p</code>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p>
+                            <i id="query-3-btn" class="bx bx-copy-alt" onclick="toClipboard('query-3')"></i>
+                        </p>
+                    </div>
+                  </div>
                 </a>
               </li>
               <li class="nav-item mt-2">
                 <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
-                  <h4>Nostrum qui quasi</h4>
-                  <p>Ratione hic sapiente nostrum doloremque illum nulla praesentium id</p>
+                  <h4>Countries of IXPs where AS2497 is present</h4>
+                  <div class="row">
+                    <div class="col-10">
+                        <p>
+                            <code id='query-4'>
+                                MATCH p = (iij:AS {asn:2497})-[:MEMBER_OF]-(ix:IXP)--(cc:Country) RETURN p
+                            </code>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p>
+                            <i id="query-4-btn" class="bx bx-copy-alt" onclick="toClipboard('query-4')"></i>
+                        </p>
+                    </div>
+                  </div>
                 </a>
               </li>
             </ul>
@@ -181,6 +227,22 @@
           </div>
         </div>
 
+        <div class="section-body" data-aos="fade-up">
+          <p>Find more examples at the following links:
+          <ul>
+              <li><a href="https://blog.apnic.net/2023/09/06/understanding-the-japanese-internet-with-the-internet-yellow-pages/">APNIC blog article on Japan</a></li>
+              <li><a href="https://ripe86.ripe.net/archives/video/1073/">RIPE86 presentation</a></li>
+              <li><a href="https://github.com/InternetHealthReport/internet-yellow-pages/blob/main/documentation/gallery.md">IYP Gallery on github</a></li>
+              <li>See also the guides that appear after you connect to the database in the IYP console.</li>
+          </ul>
+          </p>
+          <h3>Write your own queries</h3>
+            <p>The above queries are written in Cypher. This is the best way to
+            browse the IYP database, so if you want to masterize IYP you'll 
+            certainly want to also check the <a href="https://neo4j.com/docs/getting-started/cypher-intro/">Cypher documentation</a>.
+              </p>
+        </div>
+
       </div>
     </section><!-- End Features Section -->
 
@@ -188,9 +250,41 @@
     <section id="datasources" class="portfolio">
       <div class="container">
 
-        <div class="section-title" data-aos="fade-up">
-          <h2>Data Sources</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <div data-aos="fade-up">
+          <h2 class="section-title">Data Sources</h2>
+          <p>Many thanks to all the organizations providing data to the Internet Yellow Pages!</p>
+          <div class="row">
+            <div class="col">
+                <ul>
+                    <li><a href="https://www.apnic.net/">APNIC </a></li>
+                    <li><a href="https://bgpkit.com/">BGPKIT </a></li>
+                    <li><a href="https://bgp.tools/">BGP.Tools </a></li>
+                    <li><a href="https://www.caida.org/">CAIDA </a></li>
+                    <li><a href="https://www.cisco.com/">CISCO </a></li>
+                    <li><a href="https://www.citizenlab.co/">CitizenLab </a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li><a href="https://radar.cloudflare.com/">Cloudflare </a></li>
+                    <li><a href="https://ihr.iijlab.net">IHR </a></li>
+                    <li><a href="https://inetintel.notion.site">Georgia Tech</a></li>
+                    <li><a href="https://www.manrs.org/">MANRS </a></li>
+                    <li><a href="https://www.nro.net/">NRO </a></li>
+                    <li><a href="https://openintel.nl/">OpenINTEL </a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul>
+                    <li><a href="https://www.pch.net">PCH </a></li>
+                    <li><a href="https://www.peeringdb.com/">PeeringDB </a></li>
+                    <li><a href="https://www.ripe.net/">RIPE NCC </a></li>
+                    <li><a href="https://www.routeviews.org/routeviews/">RouteViews </a></li>
+                    <li><a href="https://asdb.stanford.edu/">Stanford </a></li>
+                    <li><a href="https://tranco-list.eu/">Tranco </a></li>
+                </ul>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -202,52 +296,33 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>F.A.Q</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Why do I see multiple links between two nodes?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                 <p>
-                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                Each dataset imported in IYP add new links, sometimes it happens that two different datasets provide the same information. For example, APNIC and CAIDA datasets both give the name 'IIJ' to AS2497 which create two links between the nodes'AS2497' and 'IIJ'. To understand the differences between links that connect the same nodes check the properties attached to the links (by clicking on it on the graphical interface).
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">What are all the types of nodes/links available in IYP? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                In the IYP console click on the top-right database icon to see the list of node/relationship types and properties attached to them. An example is shown when clicking on any of these.
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Can I run IYP locally? and add my own data? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
-                </p>
-              </div>
-            </li>
-
-            <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
+                Yes, and we recommend you to do so if you want programmatically query IYP at a high rate. The instructions to download the database and run the docker container is available at: <a href"https://github.com/InternetHealthReport/internet-yellow-pages/">https://github.com/InternetHealthReport/internet-yellow-pages/</a>
                 </p>
               </div>
             </li>
@@ -264,7 +339,7 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p> Feel free to contact us by emails or send your feedback on github:</p>
         </div>
 
         <div class="row no-gutters justify-content-center" data-aos="fade-up">
@@ -318,10 +393,10 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
