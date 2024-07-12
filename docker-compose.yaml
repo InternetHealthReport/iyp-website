@@ -1,0 +1,5 @@
+services:
+  iyp-website:
+    build: .
+    ports:
+      - "8000:80"
