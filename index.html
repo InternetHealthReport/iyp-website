@@ -135,12 +135,12 @@
                   <div class="row">
                     <div class="col-10">
                         <p>
-                            <code id='query-1'>MATCH p = (:AS {asn:2497})--(:Name) RETURN p</code>
+                            <code id='query-1' onclick="toClipboard('query-1')">MATCH p = (:AS {asn:2497})--(:Name) RETURN p</code>
                         </p>
                     </div>
                     <div class="col-2">
                         <p>
-                            <i id="query-1-btn" class="bx bx-copy-alt" onclick="toClipboard('query-1')"></i>
+                            <i id="query-1-btn" class="bx bx-copy-alt p-2" onclick="toClipboard('query-1')"></i>
                         </p>
                     </div>
                   </div>
@@ -152,12 +152,12 @@
                   <div class="row">
                     <div class="col-10">
                         <p>
-                            <code id='query-2'>MATCH p = (:Prefix {prefix:'8.8.8.0/24'})--(neighbor) RETURN p</code>
+                            <code id='query-2' onclick="toClipboard('query-2')">MATCH p = (:Prefix {prefix:'8.8.8.0/24'})--(neighbor) RETURN p</code>
                         </p>
                     </div>
                     <div class="col-2">
                         <p>
-                            <i id="query-2-btn" class="bx bx-copy-alt" onclick="toClipboard('query-2')"></i>
+                            <i id="query-2-btn" class="bx bx-copy-alt p-2" onclick="toClipboard('query-2')"></i>
                         </p>
                     </div>
                   </div>
@@ -169,12 +169,12 @@
                   <div class="row">
                     <div class="col-10">
                         <p>
-                            <code id='query-3'>MATCH p = (:AS {asn:2497})-[{reference_name:'nro.delegated_stats'}]-(:Country) RETURN p</code>
+                            <code id='query-3' onclick="toClipboard('query-3')">MATCH p = (:AS {asn:2497})-[{reference_name:'nro.delegated_stats'}]-(:Country) RETURN p</code>
                         </p>
                     </div>
                     <div class="col-2">
                         <p>
-                            <i id="query-3-btn" class="bx bx-copy-alt" onclick="toClipboard('query-3')"></i>
+                            <i id="query-3-btn" class="bx bx-copy-alt p-2" onclick="toClipboard('query-3')"></i>
                         </p>
                     </div>
                   </div>
@@ -186,14 +186,12 @@
                   <div class="row">
                     <div class="col-10">
                         <p>
-                            <code id='query-4'>
-                                MATCH p = (iij:AS {asn:2497})-[:MEMBER_OF]-(ix:IXP)--(cc:Country) RETURN p
-                            </code>
+                            <code id='query-4' onclick="toClipboard('query-4')"> MATCH p = (iij:AS {asn:2497})-[:MEMBER_OF]-(ix:IXP)--(cc:Country) RETURN p</code>
                         </p>
                     </div>
                     <div class="col-2">
                         <p>
-                            <i id="query-4-btn" class="bx bx-copy-alt" onclick="toClipboard('query-4')"></i>
+                            <i id="query-4-btn" class="bx bx-copy-alt p-2" onclick="toClipboard('query-4')"></i>
                         </p>
                     </div>
                   </div>
@@ -244,10 +242,11 @@
         </div>
 
         <!-- Toast  -->
-        <div class="toast-container p-6">
+        <div class="toast-container" style="z-index: 11">
           <div class="toast align-items-center text-bg-dark border-0" id="toastElement" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
               <div class="toast-body">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
                 Query copied!
               </div>
               <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
