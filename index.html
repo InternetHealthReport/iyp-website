@@ -67,7 +67,8 @@
       <h1>Welcome to IYP Console</h1>
       <h2>You can query the Internet Yellow Pages database here</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
-      <a href="https://iyp.iijlab.net/iyp/browser/?dbms=iyp-bolt.iijlab.net:443" class="btn-get-started scrollto">Query IYP</a>
+      <a href="https://iyp.iijlab.net/iyp/browser/?connectURL=neo4j+s://iyp-bolt.iijlab.net:443" class="btn-get-started">Query IYP</a>
+      <a href="https://tutorial.iyp.ihr.live/" class="btn-get-started">Tutorial</a>
     </div>
   </section><!-- End Hero -->
 
@@ -78,7 +79,7 @@
       <div class="container">
 
         <div class="row">
-          <div class="col-xl-6 col-lg-7" data-aos="fade-right">
+          <div class="col-xl-5 col-lg-6" data-aos="fade-right">
             <img src="assets/img/about-img.png" class="img-fluid" alt="">
           </div>
           <div class="col-xl-6 col-lg-5 pt-5 pt-lg-0">
@@ -91,21 +92,9 @@
             <div class="icon-box" data-aos="fade-up">
               <i class="bx bx-receipt"></i>
               <h4>No password required</h4>
-              <p>To query the IYP database, go to <a href="https://iyp.iijlab.net/iyp/browser/?dbms=iyp-bolt.iijlab.net:443">https://iyp.iijlab.net/iyp/browser/</a>,
-              enter 'iyp-bolt.iijlab.net:443' in the 'Connect URL' field and click on the 'Connect' button. No Username/Password is required.
+              <p>To query the IYP database, go to <a href="https://iyp.iijlab.net/iyp/browser/?connectURL=neo4j+s://iyp-bolt.iijlab.net:443">https://iyp.iijlab.net/iyp/browser/</a>,
+              enter 'iyp-bolt.iijlab.net:443' in the 'Connection URL' field and click on the 'Connect' button. No Username/Password is required.
               </p>
-            </div>
-
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-cog"></i>
-              <h4>Change the default settings</h4>
-              <p>We recommend to change the default settings.
-              Click on the settings icon at the bottom left then:
-              <ul>
-                <li>Uncheck the 'Connect result nodes' option. This option may display more links than you are querying for.</li>
-                <li>Increase the 'Initial Node Display' value when querying for many nodes.</li>
-              </ul>
-            </p>
             </div>
 
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
