@@ -4,3 +4,12 @@ services:
     ports:
       - "8000:80"
     restart: unless-stopped
+    develop:
+      watch:
+        - action: sync
+          path: .
+          include:
+            - index.html
+            - "assets/*"
+            - "guides/*"
+          target: /var/www/iyp/
